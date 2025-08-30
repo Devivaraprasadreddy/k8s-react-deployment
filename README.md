@@ -4,9 +4,9 @@
 
 ### In Kubernetes Server
 1. Install AWS CLI
-   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-   sudo apt install unzip
-   unzip awscliv2.zip
+  $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  $ sudo apt install unzip
+  $ unzip awscliv2.zip
    sudo ./aws/install
    // Before configure you must have the access key and secret access key. If you dont have go to IAM-> Users -> Create Access and Secret key and download in your local system
    aws configure
