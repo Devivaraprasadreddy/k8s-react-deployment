@@ -5,33 +5,73 @@
 ### In Kubernetes Server
 1. Install AWS CLI
   $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+
   $ sudo apt install unzip
+
+  
   $ unzip awscliv2.zip
-   sudo ./aws/install
+
+  
+  $ sudo ./aws/install
+
+  
    // Before configure you must have the access key and secret access key. If you dont have go to IAM-> Users -> Create Access and Secret key and download in your local system
-   aws configure
+   
+   
+   $ aws configure
+
+   
 3. Install Kubectl
+
+   
+
    curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+
+
    chmod +x ./kubectl
+
+
    sudo mv ./kubectl /usr/local/bin
+
+
    kubectl version --short --client
-4. Install EKSCTL
+
+   
+5. Install EKSCTL
+
+
    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-   sudo mv /tmp/eksctl /usr/local/bin
+
+
+    sudo mv /tmp/eksctl /usr/local/bin
+
+
    eksctl version
-5. Create EKS Cluster on K8's Server
+
+   
+7. Create EKS Cluster on K8's Server
+
+
    eksctl create cluster --name=my-eks22 \
                       --region=us-east-1 \
                       --zones=us-east-1a,us-east-1b \
                       --version=1.31 \
                       --without-nodegroup
 
-6. Create IAM OIDC Provider
-   eksctl utils associate-iam-oidc-provider \
+
+9. Create IAM OIDC Provider
+
+
+    eksctl utils associate-iam-oidc-provider \
     --region us-east-1 \
     --cluster my-eks22 \
     --approve
-7. Create NodeGroup
+
+   
+11. Create NodeGroup
+  
+   
    eksctl create nodegroup --cluster=my-eks22 \
                        --region=us-east-1 \
                        --name=node2 \
@@ -48,10 +88,15 @@
                        --full-ecr-access \
                        --appmesh-access \
                        --alb-ingress-access
-8. Create Service Account (Please Verify in this Repository named as "sa.yml"
-9. Create Role (Please Verify in this Repository named as "role.yaml"
-10. Create Rolebinding (Please Verify in this Repository named as "rolebind.yml"
-11. Create Secret (Please Verify in this Repository named as "secret.yml"
+
+                       
+12. Create Service Account (Please Verify in this Repository named as "sa.yml"
+13. 
+14. Create Role (Please Verify in this Repository named as "role.yaml"
+15. 
+16. Create Rolebinding (Please Verify in this Repository named as "rolebind.yml"
+17. 
+18. Create Secret (Please Verify in this Repository named as "secret.yml"
 
 ### In Jenkins Server
 1. Install Jenkins
