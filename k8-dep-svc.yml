@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-react-shiwansh
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: portfolio-react-shiwansh
+  template:
+    metadata:
+      labels:
+        app: portfolio-react-shiwansh
+    spec:
+      containers:
+        - name: portfolio-react-shiwansh
+          image: dsp9391/reddyreactportfolioshiwansh:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80   # Changed to 80
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "100m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-react-shiwansh
+spec:
+  type: LoadBalancer
+  selector:
+    app: portfolio-react-shiwansh
+  ports:
+    - port: 80        # Service port
+      targetPort: 80  # Container port

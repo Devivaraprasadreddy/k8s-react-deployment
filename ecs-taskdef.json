@@ -1,0 +1,22 @@
+{
+  "family": "reddydevops-task",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::084375571314:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "reddydevopsshiwansh-container",
+      "image": "084375571314.dkr.ecr.us-east-1.amazonaws.com/prasadportfolioshiwansh:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
+
